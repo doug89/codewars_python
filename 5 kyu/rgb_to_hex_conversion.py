@@ -21,9 +21,26 @@ Examples (input --> output):
 
 
 def rgb(r,g,b):
-    colours = [hex(min(255, max(0, colour)))[2:].upper() for colour in (r,g,b)]
-    colours = ["0" + colours[i] if len(colours[i]) == 1 else colours[i] for i in range(len(colours))]
+    colours = [hex(min(255, max(0, i)))[2:].upper() for i in (r,g,b)]
+    colours = ["0" + i if len(i) == 1 else i for i in colours]
     return "".join(colours)
+
+
+def limit(n: float, minimum: float, maximum: float) -> float:
+    """Accept a number, a minimum, and a maximum, and return either the number of the minimum or maximum
+
+        Parameters:
+            number (float): the number the user wants to place a limit on.
+            minimum (float): the number which will be returned if the number is less than it.
+            maximum (float): the number which will be returned if the number is greater than it.
+
+        Returns:
+            float: a number constrained by the limits.
+    """
+    return min(maximum, max(minimum, n))
+
+limit_n = lambda n, min, max: min(max, max(min, n))
+
 
 # def rgb(r,g,b):
 #     colours = [min(255, max(0, colour)) for colour in (r,g,b)]
