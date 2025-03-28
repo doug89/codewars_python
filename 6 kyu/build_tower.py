@@ -10,6 +10,7 @@ Build a pyramid-shaped tower, as an array/list of strings, given a positive inte
 For example, a tower with 3 floors looks like this:
 """
 
+
 def tower_builder(n):
     return [("*" * (1 + 2 * i)).center(1 + 2 * (n - 1)) for i in range(n)]
 
